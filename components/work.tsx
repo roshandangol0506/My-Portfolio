@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
 interface WorkProps {
-  scrollToSection: (id: string) => void;
+  scrollToSection: (id: string) => void
 }
 
 export default function Work({ scrollToSection }: WorkProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(0);
+  const [isVisible, setIsVisible] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
+      setIsVisible(true)
+    }, 300)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   const projects = [
     {
@@ -80,81 +80,83 @@ export default function Work({ scrollToSection }: WorkProps) {
       status: "Deployment Phase",
       link: "#",
     },
-  ];
+  ]
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-8 py-32">
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-32">
       <div className="max-w-7xl mx-auto w-full">
         <div
           className={`transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-12">
-            My Work
-          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-8 md:mb-12">My Work</h2>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-4 md:gap-8">
             {/* Project List */}
-            <div className="lg:col-span-1">
-              <div className="space-y-4">
+            <div className="lg:col-span-1 order-2 lg:order-1">
+              <div className="space-y-2 md:space-y-4 max-h-96 lg:max-h-none overflow-y-auto lg:overflow-visible">
                 {projects.map((project, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedProject(index)}
-                    className={`w-full text-left p-4 rounded-lg transition-all duration-300 border border-white ${
+                    className={`w-full text-left p-2 md:p-4 rounded-lg transition-all duration-300 border border-white text-sm md:text-base ${
                       selectedProject === index
                         ? "bg-white bg-opacity-10 border-white border-opacity-100"
                         : "border-white border-opacity-20 hover:border-opacity-50"
                     }`}
                   >
-                    <h3 className="font-light text-lg mb-2">{project.title}</h3>
-                    <p className="text-sm opacity-70">{project.year}</p>
+                    <h3 className="font-light text-base md:text-lg mb-1 md:mb-2 line-clamp-2">{project.title}</h3>
+                    <p className="text-xs md:text-sm opacity-70">{project.year}</p>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="lg:col-span-2">
-              <div className="sticky top-1/2 transform -translate-y-1/2">
-                <div className="mb-6">
-                  <span className="text-sm opacity-70 tracking-wider">
-                    {String(selectedProject + 1).padStart(2, "0")} /{" "}
-                    {String(projects.length).padStart(2, "0")}
+            {/* Project Details - Moved below on mobile */}
+            <div className="lg:col-span-2 order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="lg:sticky lg:top-1/2 lg:transform lg:-translate-y-1/2">
+                <div className="mb-4 md:mb-6">
+                  <span className="text-xs md:text-sm opacity-70 tracking-wider">
+                    {String(selectedProject + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
                   </span>
                 </div>
 
-                <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance">
+                <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6 text-balance">
                   {projects[selectedProject].title}
                 </h3>
 
-                <div className="mb-6 flex flex-wrap gap-2">
+                <div className="mb-4 md:mb-6 flex flex-wrap gap-2">
                   {projects[selectedProject].tech.map((t) => (
                     <span
                       key={t}
-                      className="text-xs font-light px-3 py-1 border border-white border-opacity-30 rounded-full opacity-80"
+                      className="text-xs font-light px-2 md:px-3 py-1 border border-white border-opacity-30 rounded-full opacity-80"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-                <Image
-                  src={projects[selectedProject].img}
-                  alt="Roshan Dangol"
-                  width={400}
-                  height={400}
-                />
 
-                <p className="text-lg font-light leading-relaxed mb-8 opacity-90">
+                <div className="mb-6 md:mb-8 relative w-full overflow-hidden rounded-lg bg-white bg-opacity-5 border border-white border-opacity-10">
+                  <div className="relative w-full aspect-square">
+                    <Image
+                      src={projects[selectedProject].img || "/placeholder.svg"}
+                      alt={projects[selectedProject].title}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    />
+                  </div>
+                </div>
+
+                <p className="text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8 opacity-90">
                   {projects[selectedProject].description}
                 </p>
 
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                   <span
-                    className={`px-4 py-2 border border-white text-sm font-light tracking-wider ${
-                      projects[selectedProject].status === "Deployed"
-                        ? "bg-white text-black"
-                        : ""
+                    className={`px-3 md:px-4 py-2 border border-white text-xs md:text-sm font-light tracking-wider ${
+                      projects[selectedProject].status === "Deployed" ? "bg-white text-black" : ""
                     }`}
                   >
                     {projects[selectedProject].status}
@@ -164,7 +166,7 @@ export default function Work({ scrollToSection }: WorkProps) {
                       href={projects[selectedProject].link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-light opacity-70 hover:opacity-100 transition-opacity"
+                      className="text-xs md:text-sm font-light opacity-70 hover:opacity-100 transition-opacity"
                     >
                       View Project →
                     </a>
@@ -176,5 +178,5 @@ export default function Work({ scrollToSection }: WorkProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
