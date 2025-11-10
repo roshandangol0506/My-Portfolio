@@ -70,3 +70,22 @@ input::placeholder,
 textarea::placeholder {
   @apply opacity-50;
 }
+
+/* Added mobile-specific styles for better responsiveness */
+@media (max-width: 425px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 12px;
+  }
+}
