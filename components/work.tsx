@@ -1,28 +1,30 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface WorkProps {
-  scrollToSection: (id: string) => void
+  scrollToSection: (id: string) => void;
 }
 
 export default function Work({ scrollToSection }: WorkProps) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(0)
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 300)
+      setIsVisible(true);
+    }, 300);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const projects = [
     {
       title: "Palm Mind Website",
       year: "2024",
       tech: ["React", "Next.js", "Tailwind CSS"],
+      img: "/palmmind.png",
       description:
         "Fully dynamic website with Discovery call booking, career sections to manage job roles, and AI chatbot integration for real-time communication.",
       status: "Deployed",
@@ -32,6 +34,7 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Keepme AI",
       year: "2024",
       tech: ["Node.js", "Express.js", "MongoDB"],
+      img: "/palmmind.png",
       description:
         "AI-powered application designed to enhance user experience with intelligent features and advanced automation capabilities.",
       status: "Ongoing",
@@ -41,6 +44,7 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Khokana Paau Website",
       year: "2024",
       tech: ["Node.js", "Express.js", "React", "MongoDB"],
+      img: "/palmmind.png",
       description:
         "Fully dynamic website with online registration, admin-managed product listings, shopping cart, checkout system, user reviews, and photo gallery.",
       status: "Ongoing",
@@ -50,6 +54,7 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Event Management System",
       year: "2024",
       tech: ["MERN Stack", "Tailwind CSS"],
+      img: "/palmmind.png",
       description:
         "Platform for browsing, booking, and managing events like blood donation drives and concerts with ticketing and real-time updates.",
       status: "Group Project",
@@ -59,6 +64,7 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Evergreen Gym Management",
       year: "2023",
       tech: ["Django", "MySQL", "Python"],
+      img: "/palmmind.png",
       description:
         "Comprehensive management system featuring payment tracking, membership management, and admin dashboard for Evergreen Gym Fitness.",
       status: "Deployed",
@@ -68,12 +74,13 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Yamaha AMC",
       year: "2023",
       tech: ["Django", "MySQL", "JavaScript"],
+      img: "/palmmind.png",
       description:
         "Annual Maintenance System with user management, bike servicing tracking, and card-swiping device integration for service centers.",
       status: "Deployment Phase",
       link: "#",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen flex items-center justify-center px-8 py-32">
@@ -83,7 +90,9 @@ export default function Work({ scrollToSection }: WorkProps) {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-12">My Work</h2>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-12">
+            My Work
+          </h2>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Project List */}
@@ -110,7 +119,8 @@ export default function Work({ scrollToSection }: WorkProps) {
               <div className="sticky top-1/2 transform -translate-y-1/2">
                 <div className="mb-6">
                   <span className="text-sm opacity-70 tracking-wider">
-                    {String(selectedProject + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+                    {String(selectedProject + 1).padStart(2, "0")} /{" "}
+                    {String(projects.length).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -128,6 +138,12 @@ export default function Work({ scrollToSection }: WorkProps) {
                     </span>
                   ))}
                 </div>
+                <Image
+                  src={projects[selectedProject].img}
+                  alt="Roshan Dangol"
+                  width={400}
+                  height={400}
+                />
 
                 <p className="text-lg font-light leading-relaxed mb-8 opacity-90">
                   {projects[selectedProject].description}
@@ -136,7 +152,9 @@ export default function Work({ scrollToSection }: WorkProps) {
                 <div className="flex items-center gap-6">
                   <span
                     className={`px-4 py-2 border border-white text-sm font-light tracking-wider ${
-                      projects[selectedProject].status === "Deployed" ? "bg-white text-black" : ""
+                      projects[selectedProject].status === "Deployed"
+                        ? "bg-white text-black"
+                        : ""
                     }`}
                   >
                     {projects[selectedProject].status}
@@ -158,5 +176,5 @@ export default function Work({ scrollToSection }: WorkProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
