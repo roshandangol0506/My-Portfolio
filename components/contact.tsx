@@ -28,10 +28,10 @@ export default function Contact({ scrollToSection }: ContactProps) {
     setSending(true);
     emailjs
       .sendForm(
-        "service_skwbj0u",
-        "template_612b55d",
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
         form.current as any,
-        "ALdk5PVwqVe2smk5F"
+        process.env.NEXT_PUBLIC_API_KEY as string
       )
       .then(
         (result) => {
