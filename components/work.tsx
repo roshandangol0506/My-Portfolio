@@ -92,7 +92,7 @@ export default function Work({ scrollToSection }: WorkProps) {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-20">
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-10">
       <div className="max-w-7xl mx-auto w-full">
         <div
           className={`transition-all duration-1000 ${
@@ -152,6 +152,7 @@ export default function Work({ scrollToSection }: WorkProps) {
                     </span>
                   ))}
                 </div>
+
                 <div className="mb-6 md:mb-8 relative w-full overflow-hidden rounded-lg bg-white bg-opacity-5 border border-white border-opacity-10">
                   <div className="relative w-full aspect-video">
                     <Image

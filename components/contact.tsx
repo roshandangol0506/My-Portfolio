@@ -74,7 +74,7 @@ export default function Contact({ scrollToSection }: ContactProps) {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-32">
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-2">
       <div className="max-w-6xl mx-auto w-full">
         <div
           className={`transition-all duration-1000 ${

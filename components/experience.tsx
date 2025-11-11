@@ -1,27 +1,22 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import {
-  Briefcase,
-  BriefcaseBusiness,
-  Calendar,
-  TrainTrack,
-} from "lucide-react";
+import { useEffect, useState } from "react"
+import { Briefcase, Calendar } from "lucide-react"
 
 interface ExperienceProps {
-  scrollToSection: (id: string) => void;
+  scrollToSection: (id: string) => void
 }
 
 export default function Experience({ scrollToSection }: ExperienceProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
+      setIsVisible(true)
+    }, 300)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   const experiences = [
     {
@@ -48,10 +43,10 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
       description:
         "Comprehensive training program covering MongoDB, Express.js, React.js, and Node.js development with hands-on projects and mentorship.",
     },
-  ];
+  ]
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-2 md:py-2">
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-2 md:py-10">
       <div className="max-w-4xl mx-auto w-full">
         <div
           className={`transition-all duration-1000 ${
@@ -62,7 +57,7 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
             Training & Experience
           </h2>
 
-          <div className="space-y-4 md:space-y-8 cursor-pointer">
+          <div className="space-y-4 md:space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
@@ -70,14 +65,8 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
               >
                 {/* Icon - Hidden on extra small screens, shown on sm and up */}
                 <div className="flex-shrink-0 hidden sm:flex">
-                  <div className="w-10 h-10 md:w-12 md:h-12  rounded-full flex items-center justify-center border-2 border-white">
-                    {exp.title === "Full Time Developer" ? (
-                      <BriefcaseBusiness className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                    ) : exp.title === "MERN Stack Internship" ? (
-                      <TrainTrack className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                    ) : (
-                      <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                    )}
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                 </div>
 
@@ -86,9 +75,7 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2 text-white line-clamp-2">
                     {exp.title}
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-white opacity-80 mb-3 md:mb-3">
-                    {exp.company}
-                  </p>
+                  <p className="text-sm sm:text-base md:text-lg text-white opacity-80 mb-3 md:mb-3">{exp.company}</p>
 
                   {/* Period and Status */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-3 mb-3 md:mb-4">
@@ -118,5 +105,5 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
