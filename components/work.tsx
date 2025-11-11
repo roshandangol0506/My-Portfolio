@@ -92,7 +92,7 @@ export default function Work({ scrollToSection }: WorkProps) {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-44">
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 md:py-10">
       <div className="max-w-7xl mx-auto w-full">
         <div
           className={`transition-all duration-1000 ${
