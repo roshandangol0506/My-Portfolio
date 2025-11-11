@@ -71,7 +71,7 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
                 {/* Icon - Hidden on extra small screens, shown on sm and up */}
                 <div className="flex-shrink-0 hidden sm:flex">
                   <div className="w-10 h-10 md:w-12 md:h-12  rounded-full flex items-center justify-center border-2 border-white">
-                    {exp.title === "Full Time Developer" ? (
+                    {exp.title === "Junior Developer" ? (
                       <BriefcaseBusiness className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     ) : exp.title === "MERN Stack Internship" ? (
                       <TrainTrack className="w-5 h-5 md:w-6 md:h-6 text-white" />
