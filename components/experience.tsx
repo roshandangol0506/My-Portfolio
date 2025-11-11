@@ -1,6 +1,23 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Briefcase, Calendar } from "lucide-react"
 
-export default function Experience() {
+interface ExperienceProps {
+  scrollToSection: (id: string) => void
+}
+
+export default function Experience({ scrollToSection }: ExperienceProps) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 300)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   const experiences = [
     {
       title: "Full Time Developer",
@@ -8,7 +25,7 @@ export default function Experience() {
       period: "Current",
       status: "Running",
       description:
-        "Working on real-world projects using MERN stack technologies, contributing to web development initiatives.",
+        "Working on real-world projects using MERN stack technologies, contributing to web development initiatives and building scalable applications.",
     },
     {
       title: "MERN Stack Internship",
@@ -16,56 +33,77 @@ export default function Experience() {
       period: "4 months (2082 B.S.)",
       status: "Completed",
       description:
-        "Worked on real-world projects using MERN stack technologies, contributing to web development initiatives.",
+        "Worked on real-world projects using MERN stack technologies, contributing to web development initiatives and gaining practical experience.",
     },
     {
       title: "MERN Stack Training",
       company: "Boardway Infosys",
       period: "4 months (2081 B.S.)",
       status: "Completed",
-      description: "Comprehensive training program covering MongoDB, Express.js, React.js, and Node.js development.",
+      description:
+        "Comprehensive training program covering MongoDB, Express.js, React.js, and Node.js development with hands-on projects and mentorship.",
     },
   ]
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">Training & Experience</h2>
+    <div className="min-h-screen flex items-center justify-center px-4 md:px-8 py-2 md:py-10">
+      <div className="max-w-4xl mx-auto w-full">
+        <div
+          className={`transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 sm:mb-8 md:mb-12 text-balance">
+            Training & Experience
+          </h2>
 
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="flex flex-col sm:flex-row sm:items-start gap-4 md:gap-6 p-4 md:p-6 lg:p-8 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-lg hover:bg-opacity-10 hover:border-opacity-20 transition-all duration-300"
               >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-white" />
+                {/* Icon - Hidden on extra small screens, shown on sm and up */}
+                <div className="flex-shrink-0 hidden sm:flex">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                    <Briefcase className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                 </div>
 
-                <div className="flex-grow">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{exp.title}</h3>
-                  <p className="text-lg text-gray-700 mb-2">{exp.company}</p>
-                  <div className="flex items-center text-gray-600 mb-3">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span>{exp.period}</span>
+                <div className="flex-grow w-full">
+                  {/* Title and Company */}
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2 text-white line-clamp-2">
+                    {exp.title}
+                  </h3>
+                  <p className="text-sm sm:text-base md:text-lg text-white opacity-80 mb-3 md:mb-3">{exp.company}</p>
+
+                  {/* Period and Status */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                    <div className="flex items-center text-xs sm:text-sm md:text-base text-white opacity-70 gap-2">
+                      <Calendar className="w-4 h-4 flex-shrink-0" />
+                      <span>{exp.period}</span>
+                    </div>
                     <span
-                      className={`ml-4 px-2 py-1 rounded-full text-xs font-medium ${
-                        exp.status === "Running" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"
+                      className={`w-fit text-xs font-medium px-2 md:px-3 py-1 rounded-full ${
+                        exp.status === "Running"
+                          ? "bg-green-500 bg-opacity-20 text-green-300"
+                          : "bg-blue-500 bg-opacity-20 text-blue-300"
                       }`}
                     >
                       {exp.status}
                     </span>
                   </div>
-                  <p className="text-gray-600">{exp.description}</p>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed text-white opacity-80">
+                    {exp.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

@@ -5,6 +5,7 @@ import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Work from "@/components/work"
+import Experience from "@/components/experience"
 import Contact from "@/components/contact"
 
 export default function Home() {
@@ -38,8 +39,11 @@ export default function Home() {
         case "work":
           setBgColor("bg-neutral-800")
           break
-        case "contact":
+        case "experience":
           setBgColor("bg-neutral-950")
+          break
+        case "contact":
+          setBgColor("bg-neutral-900")
           break
         default:
           setBgColor("bg-black")
@@ -71,6 +75,10 @@ export default function Home() {
 
       <section id="work">
         <Work scrollToSection={scrollToSection} />
+      </section>
+
+      <section id="experience">
+        <Experience scrollToSection={scrollToSection} />
       </section>
 
       <section id="contact">
