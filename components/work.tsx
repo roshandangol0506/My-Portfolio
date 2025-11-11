@@ -152,7 +152,7 @@ export default function Work({ scrollToSection }: WorkProps) {
                     </span>
                   ))}
                 </div>
-                <div className="mb-6 md:mb-8 relative w-full overflow-hidden rounded-lg bg-white bg-opacity-5 border border-white border-opacity-10">
+                <div className="mb-6 md:mb-8 relative w-full overflow-hidden rounded-lg bg-white bg-opacity-5 border border-white border-opacity-10  rounded-3xl">
                   <div className="relative w-full aspect-video">
                     <Image
                       src={projects[selectedProject].img || "/placeholder.svg"}
