@@ -3,12 +3,20 @@ import { Briefcase, Calendar } from "lucide-react"
 export default function Experience() {
   const experiences = [
     {
-      title: "MERN Stack Internship",
+      title: "Full Time Developer",
       company: "Palm Mind Technology",
       period: "Current",
       status: "Running",
       description:
         "Working on real-world projects using MERN stack technologies, contributing to web development initiatives.",
+    },
+    {
+      title: "MERN Stack Internship",
+      company: "Palm Mind Technology",
+      period: "4 months (2082 B.S.)",
+      status: "Completed",
+      description:
+        "Worked on real-world projects using MERN stack technologies, contributing to web development initiatives.",
     },
     {
       title: "MERN Stack Training",
