@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "deploy": "npm run build && gh-pages -d out -b changesV2",
+    "deploy": "npm install -legacy-peer-deps && npm run build",
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
