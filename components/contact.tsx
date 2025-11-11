@@ -34,11 +34,11 @@ export default function Contact({ scrollToSection }: ContactProps) {
       )
       .then(
         (result) => {
-          alert("Message sent successfully!");
+          toast("Message sent successfully!");
           setSending(false);
         },
         (error) => {
-          alert("Failed to send message. Please try again later.");
+          toast("Failed to send message. Please try again later.");
           setSending(false);
           console.log(error.text);
         }
