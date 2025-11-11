@@ -152,6 +152,12 @@ export default function Work({ scrollToSection }: WorkProps) {
                     </span>
                   ))}
                 </div>
+                <Image
+                  src={projects[selectedProject].img}
+                  alt="Roshan Dangol"
+                  width={400}
+                  height={400}
+                />
 
                 <div className="mb-6 md:mb-8 relative w-full overflow-hidden rounded-lg bg-white bg-opacity-5 border border-white border-opacity-10">
                   <div className="relative w-full aspect-video">
