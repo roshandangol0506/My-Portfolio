@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import emailjs from "emailjs-com";
+import { toast } from "sonner";
 
 interface ContactProps {
   scrollToSection: (id: string) => void;
@@ -34,11 +35,12 @@ export default function Contact({ scrollToSection }: ContactProps) {
       )
       .then(
         (result) => {
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!");
           setSending(false);
+          form.current?.reset();
         },
         (error) => {
-          alert("Failed to send message. Please try again later.");
+          toast.error("Failed to send message. Please try again later.");
           setSending(false);
           console.log(error.text);
         }

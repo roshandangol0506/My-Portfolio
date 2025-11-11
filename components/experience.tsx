@@ -25,12 +25,12 @@ export default function Experience({ scrollToSection }: ExperienceProps) {
 
   const experiences = [
     {
-      title: "Full Time Developer",
+      title: "Junior Developer",
       company: "Palm Mind Technology",
       period: "Current",
       status: "Running",
       description:
-        "Working on real-world projects using MERN stack technologies, contributing to web development initiatives and building scalable applications.",
+        "Working as a Junior Full Stack Developer, enjoying coding and and continuous learning from 9 to 6.",
     },
     {
       title: "MERN Stack Internship",
