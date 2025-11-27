@@ -53,7 +53,7 @@ export default function Work({ scrollToSection }: WorkProps) {
       title: "Khokana Paau Website",
       year: "2024",
       tech: ["Node.js", "Next.js", "Express.js", "React", "MongoDB"],
-      img: "/project/image2.png",
+      img: "/project/e-commerce.png",
       description:
         "A fully dynamic e-commerce website built during my training session at Broadway Infosys. The platform features a complete shopping experience with online registration, product listings, shopping cart, checkout system, user reviews, and a photo gallery. It includes an admin dashboard to manage, update, add, and delete products, as well as handle checkout processes. The entire website was restructured with a focus on performance, usability, and modern design principles.",
       status: "Completed",

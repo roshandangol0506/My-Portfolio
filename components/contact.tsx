@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import emailjs from "emailjs-com";
 import { toast } from "sonner";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaGithub,
+} from "react-icons/fa";
 
 interface ContactProps {
   scrollToSection: (id: string) => void;
@@ -63,16 +69,16 @@ export default function Contact({ scrollToSection }: ContactProps) {
       value: "Khokana, Lalitpur",
       href: null,
     },
-    {
-      label: "GitHub",
-      value: "github.com/roshandangol0506",
-      href: "https://github.com/roshandangol0506",
-    },
-    {
-      label: "LinkedIn",
-      value: "linkedin.com/in/roshan-dangol",
-      href: "https://linkedin.com/in/roshan-dangol-829954317",
-    },
+    // {
+    //   label: "GitHub",
+    //   value: "github.com/roshandangol0506",
+    //   href: "https://github.com/roshandangol0506",
+    // },
+    // {
+    //   label: "LinkedIn",
+    //   value: "linkedin.com/in/roshan-dangol",
+    //   href: "https://linkedin.com/in/roshan-dangol-829954317",
+    // },
   ];
 
   return (
@@ -132,6 +138,43 @@ export default function Contact({ scrollToSection }: ContactProps) {
                     </div>
                   </div>
                 ))}
+                <div className="flex flex-wrap justify-center items-center gap-12 sm:gap-12 md:gap-20 lg:gap-20 xl:gap-20 text-lg sm:text-xl md:text-2xl lg:text-2xl ">
+                  <a
+                    href="https://www.instagram.com/rosan_dngl?utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70"
+                  >
+                    <FaInstagram />
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/dangol.roshan.2025"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70"
+                  >
+                    <FaFacebookF />
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/roshan-dangol-829954317"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+
+                  <a
+                    href="https://github.com/roshandangol0506"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70"
+                  >
+                    <FaGithub />
+                  </a>
+                </div>
               </div>
             </div>
 

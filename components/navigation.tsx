@@ -104,6 +104,7 @@ export default function Navigation({
           <a
             href="/MERN Stack (Roshan Dangol).pdf"
             className="hidden sm:block text-xs md:text-sm font-light tracking-wider border border-white px-2 md:px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0"
+            target="_blank"
           >
             Resume
           </a>
