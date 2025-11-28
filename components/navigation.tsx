@@ -103,7 +103,7 @@ export default function Navigation({
           {/* Resume Button - Hidden on mobile */}
           <a
             href="/MERN Stack (Roshan Dangol).pdf"
-            className="hidden sm:block text-xs md:text-sm font-light tracking-wider border border-white px-2 md:px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0"
+            className="sm:block text-xs md:text-sm font-light tracking-wider border border-white px-2 md:px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0"
             target="_blank"
           >
             Resume
@@ -152,12 +152,12 @@ export default function Navigation({
             </div>
 
             {/* Mobile Resume Button */}
-            <a
+            {/* <a
               href="/MERN Stack (Roshan Dangol).pdf"
               className="block w-full text-center text-sm font-light tracking-wider border border-white px-4 py-3 hover:bg-white hover:text-black transition-all duration-300 rounded-lg"
             >
               Resume
-            </a>
+            </a> */}
           </div>
         </div>
       )}
